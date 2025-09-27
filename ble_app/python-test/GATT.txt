@@ -1,0 +1,33 @@
+For props, 0x02 = read, 0x0c = write without response, 0x22 = notify
+
+-- Standard GATT services
+service - start: 0x0001, end: 0x0005, type: primary, uuid: 00001800-0000-1000-8000-00805f9b34fb
+charac - start: 0x0002, value: 0x0003, props: 0x02, ext_props: 0x0000, uuid: 00002a00-0000-1000-8000-00805f9b34fb
+charac - start: 0x0004, value: 0x0005, props: 0x02, ext_props: 0x0000, uuid: 00002a01-0000-1000-8000-00805f9b34fb
+
+service - start: 0x0006, end: 0x0009, type: primary, uuid: 00001801-0000-1000-8000-00805f9b34fb
+charac - start: 0x0007, value: 0x0008, props: 0x22, ext_props: 0x0000, uuid: 00002a05-0000-1000-8000-00805f9b34fb
+descr - handle: 0x0009, uuid: 00002902-0000-1000-8000-00805f9b34fb
+
+-- Device information --
+service - start: 0x000a, end: 0x0012, type: primary, uuid: 0000180a-0000-1000-8000-00805f9b34fb
+charac - start: 0x000b, value: 0x000c, props: 0x02, ext_props: 0x0000, uuid: 00002a29-0000-1000-8000-00805f9b34fb -> manufacturer name
+charac - start: 0x000d, value: 0x000e, props: 0x02, ext_props: 0x0000, uuid: 00002a24-0000-1000-8000-00805f9b34fb -> model number
+charac - start: 0x000f, value: 0x0010, props: 0x02, ext_props: 0x0000, uuid: 00002a26-0000-1000-8000-00805f9b34fb -> serial number
+charac - start: 0x0011, value: 0x0012, props: 0x02, ext_props: 0x0000, uuid: 00002a28-0000-1000-8000-00805f9b34fb -> software revision
+
+service - start: 0x0013, end: 0xffff, type: primary, uuid: 00050000-0000-1000-0000-d8492fffa821
+charac - start: 0x0014, value: 0x0015, props: 0x02, ext_props: 0x0000, uuid: 00050001-0000-1000-0000-d8492fffa821
+charac - start: 0x0016, value: 0x0017, props: 0x0c, ext_props: 0x0000, uuid: 00050002-0000-1000-0000-d8492fffa821 -> pairing (write 0x003)
+charac - start: 0x0018, value: 0x0019, props: 0x0c, ext_props: 0x0000, uuid: 00050003-0000-1000-0000-d8492fffa821 -> shutter
+charac - start: 0x001a, value: 0x001b, props: 0x22, ext_props: 0x0000, uuid: 00050004-0000-1000-0000-d8492fffa821
+descr - handle: 0x001c, uuid: 00002902-0000-1000-8000-00805f9b34fb
+charac - start: 0x001d, value: 0x001e, props: 0x0c, ext_props: 0x0000, uuid: 00050005-0000-1000-0000-d8492fffa821
+charac - start: 0x001f, value: 0x0020, props: 0x22, ext_props: 0x0000, uuid: 00050006-0000-1000-0000-d8492fffa821
+descr - handle: 0x0021, uuid: 00002902-0000-1000-8000-00805f9b34fb
+charac - start: 0x0022, value: 0x0023, props: 0x22, ext_props: 0x0000, uuid: 00050007-0000-1000-0000-d8492fffa821
+descr - handle: 0x0024, uuid: 00002902-0000-1000-8000-00805f9b34fb
+charac - start: 0x0025, value: 0x0026, props: 0x0c, ext_props: 0x0000, uuid: 0005000a-0000-1000-0000-d8492fffa821
+charac - start: 0x0027, value: 0x0028, props: 0x22, ext_props: 0x0000, uuid: 0005000b-0000-1000-0000-d8492fffa821
+descr - handle: 0x0029, uuid: 00002902-0000-1000-8000-00805f9b34fb
+charac - start: 0x002a, value: 0x002b, props: 0x0c, ext_props: 0x0000, uuid: 0005000c-0000-1000-0000-d8492fffa821
