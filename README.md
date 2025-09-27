@@ -11,7 +11,7 @@ Companion Android + Wear OS apps that let you trigger a Canon camera wirelessly.
 ## Architecture
 
 - **Phone ↔ Camera**: BLE GATT service (pairing + shutter characteristic).
-- **Watch ↔ Phone**: Wear OS Data Layer Message API (no SharedPreferences fallback required).
+- **Watch ↔ Phone**: Wear OS Data Layer Message API.
 - **State & Storage**: Phone caches camera metadata locally; watch remains stateless besides connection state UI.
 - **Lifecycle**: Phone keeps the BLE session and Data Layer listener alive while in the background; it cleans up when the app detaches entirely.
 
@@ -32,9 +32,8 @@ Watch App  --Wear Data Layer-->  Phone App  --BLE-->  Canon Camera
 ## Prerequisites
 
 - Flutter SDK (3.9 or newer) with Android toolchain installed
-- Android Studio or VS Code for developing & debugging
-- Android phone with BLE and companion Wear OS watch (Wear OS 3+ recommended)
-- Canon camera that supports the official BLE remote protocol
+- Android phone with BLE and companion Wear OS watch (optional)
+- Canon camera that supports the official BLE remote protocol (Tested Canon EOS RP)
 
 ## Phone App (ble_app)
 
@@ -56,12 +55,6 @@ adb install build/app/outputs/flutter-apk/app-release.apk
 ```
 
 Launch the watch app, verify the connection indicator turns green, and tap the shutter button. The watch sends `/shutter_command` messages; the phone responds on `/shutter_response`.
-
-## Deployment Tips
-
-- Uninstall existing builds if you previously used mismatched `applicationId`s; both APKs now use `com.haze.canon_remote` so Wear routing works consistently.
-- Keep the phone app running (can be in standby). It only tears down services when the Flutter engine is fully detached.
-- Pair the phone with your watch through the standard Wear OS companion before sideloading.
 
 ## Troubleshooting
 
